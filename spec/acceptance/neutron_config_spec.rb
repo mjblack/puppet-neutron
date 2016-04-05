@@ -181,6 +181,16 @@ describe 'basic neutron_config resource' do
         ensure_absent_val => 'toto',
       }
 
+      neutron_lbaasv2_agent_config { 'DEFAULT/thisshouldexist2' :
+        value             => '<SERVICE DEFAULT>',
+        ensure_absent_val => 'toto',
+      }
+
+      neutron_lbaasv2_agent_config { 'DEFAULT/thisshouldnotexist2' :
+        value             => 'toto',
+        ensure_absent_val => 'toto',
+      }
+
       neutron_metadata_agent_config { 'DEFAULT/thisshouldexist' :
         value => 'foo',
       }
